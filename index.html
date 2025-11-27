@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,11 +10,10 @@
        CONFIGURACIÓN
        ========================================= */
     :root {
-      --tamano-logo: 110px; 
+      --tamano-elementos: 180px; /* Tamaño unificado para Logo y Foto */
       --bg-color: #050505;
       --text-color: #ffffff;
-      --accent-color: #ffffff; /* Blanco puro para acentos */
-      --grid-color: rgba(255, 255, 255, 0.05); /* Líneas sutiles */
+      --grid-color: rgba(255, 255, 255, 0.05);
     }
 
     @keyframes slideUpFade {
@@ -36,54 +34,24 @@
       overflow-x: hidden;
     }
 
-    /* FONDO TÉCNICO CON CUADRÍCULA */
+    /* FONDO TÉCNICO */
     .background {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      /* Patrón de cuadrícula estilo ingeniería */
       background-image: 
         linear-gradient(var(--grid-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-      background-size: 50px 50px; /* Tamaño de los cuadros */
+      background-size: 50px 50px;
       z-index: -2;
     }
 
-    /* Un degradado radial para que el centro brille un poco y los bordes sean oscuros */
     .overlay {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: radial-gradient(circle at center, transparent 0%, #050505 90%);
       z-index: -1;
-    }
-
-    /* HEADER */
-    header {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between; 
-      align-items: center;
-      padding: 2rem 3rem;
-      z-index: 3;
-    }
-
-    .logo-link { display: block; line-height: 0; }
-
-    .logo-img {
-      height: var(--tamano-logo); 
-      width: auto;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    
-    .logo-img:hover {
-      transform: scale(1.05); 
-      /* Efecto sutil azulado al pasar el ratón */
-      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
     }
 
     /* MAIN LAYOUT */
@@ -99,46 +67,50 @@
 
     .container {
       display: flex;
-      flex-direction: row-reverse; /* Foto a la derecha, texto a la izquierda */
+      flex-direction: row-reverse; /* Bloque visual a la derecha, texto a la izquierda */
       align-items: center;
       justify-content: space-between;
-      gap: 5rem;
+      gap: 4rem;
       max-width: 1200px;
       width: 100%;
       animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
-    /* SECCIÓN DE LA FOTO */
-    .profile-section {
-      position: relative;
+    /* =========================================
+       NUEVO BLOQUE: GRUPO VISUAL (LOGO + FOTO)
+       ========================================= */
+    .visuals-group {
       display: flex;
-      justify-content: center;
       align-items: center;
+      gap: 2rem; /* Espacio entre logo y foto */
+      position: relative;
     }
 
-    /* Círculo decorativo detrás de la foto */
-    .profile-section::before {
-      content: '';
-      position: absolute;
-      width: 260px; height: 260px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50%;
-      animation: spin 20s linear infinite;
-      z-index: -1;
+    /* ESTILO DEL LOGO CENTRAL */
+    .central-logo {
+      height: var(--tamano-elementos);
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
     }
 
+    .central-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* ESTILO DE LA FOTO */
     .profile-pic {
-      width: 240px; /* Más grande */
-      height: 240px;
-      border-radius: 50%; /* Opcional: Cambia a 0% si la quieres cuadrada */
+      width: var(--tamano-elementos);
+      height: var(--tamano-elementos);
+      border-radius: 50%;
       object-fit: cover;
-      /* FOTO EN BLANCO Y NEGRO POR DEFECTO */
+      /* Blanco y negro por defecto */
       filter: grayscale(100%) contrast(110%);
       border: 2px solid rgba(255,255,255,0.2);
       transition: all 0.5s ease;
+      display: block; /* Elimina espacios fantasma */
     }
 
-    /* AL PASAR EL RATÓN LA FOTO COBRA VIDA */
     .profile-pic:hover {
       filter: grayscale(0%) contrast(100%);
       border-color: #fff;
@@ -146,7 +118,7 @@
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     }
 
-    /* SECCIÓN DE TEXTO */
+    /* SECCIÓN DE TEXTO (IZQUIERDA) */
     .hero {
       flex: 1;
       display: flex;
@@ -156,25 +128,25 @@
     }
 
     .hero h1 {
-      font-size: 4rem; /* Muy grande */
+      font-size: 4rem;
       font-weight: 800;
       line-height: 1;
       margin-bottom: 1.5rem;
       color: #fff;
-      letter-spacing: -2px; /* Estilo moderno apretado */
+      letter-spacing: -2px;
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: #888; /* Gris elegante */
+      color: #888;
       margin-bottom: 2.5rem;
       font-weight: 400;
       max-width: 500px;
-      border-left: 1px solid #333; /* Línea decorativa lateral */
+      border-left: 1px solid #333;
       padding-left: 1.5rem;
     }
 
-    /* REDES SOCIALES (Debajo del texto ahora, más accesible) */
+    /* REDES SOCIALES */
     .social-icons {
       display: flex;
       gap: 1.5rem;
@@ -194,7 +166,7 @@
 
     .social-icons a:hover {
       color: #000;
-      background: #fff; /* Inversión de color al hover */
+      background: #fff;
       transform: translateY(-5px);
     }
 
@@ -204,7 +176,7 @@
       fill: currentColor;
     }
 
-    /* BOTÓN NUEVO ESTILO */
+    /* BOTÓN */
     .btn-proyectos {
       display: inline-block;
       padding: 15px 40px;
@@ -214,12 +186,10 @@
       letter-spacing: 2px;
       text-decoration: none;
       color: #000;
-      background: #fff; /* Botón blanco sólido */
+      background: #fff;
       border: 1px solid #fff;
-      border-radius: 0px; /* Bordes rectos estilo técnico */
+      border-radius: 0px;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .btn-proyectos:hover {
@@ -229,7 +199,7 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .container {
         flex-direction: column;
         gap: 3rem;
@@ -250,13 +220,20 @@
         padding-left: 0;
       }
 
-      header {
-        justify-content: center;
-        padding: 1.5rem;
+      /* Ajustes para el grupo visual en móvil */
+      .visuals-group {
+        gap: 1.5rem;
       }
       
-      /* Ajuste logo móvil */
-      .logo-img { height: 60px; }
+      /* Opcional: Si en móvil prefieres que estén uno encima del otro, descomenta esto:
+      .visuals-group { flex-direction: column; }
+      .visuals-group::after { width: 80%; height: 1px; top: 50%; left: 10%; transform: none; } 
+      */
+
+      /* Reducimos un poco el tamaño en móvil */
+      :root {
+        --tamano-elementos: 140px;
+      }
     }
   </style>
 </head>
@@ -264,16 +241,14 @@
   <div class="background"></div>
   <div class="overlay"></div>
 
-  <header>
-    <a href="https://ignaciobernal.github.io/web/" class="logo-link">
-      <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/logo-white-sinfondo.png" alt="Ignacio Bernal Logo" class="logo-img" />
-    </a>
-  </header>
+  <header></header>
 
   <main>
     <div class="container">
       
-      <div class="profile-section">
+      <div class="visuals-group">
+        <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/logo-white-sinfondo.png" alt="Ignacio Bernal Logo" class="central-logo" />
+        
         <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/profile-pic%20(2).png" alt="Ignacio Bernal" class="profile-pic" />
       </div>
 
@@ -291,7 +266,6 @@
             <svg viewBox="0 0 24 24">
               <path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6A2.5 2.5 0 0 1 0 3.5C0 2.12 1.11 1 2.49 1 3.87 1 4.98 2.12 4.98 3.5zM.2 8.9h4.5v13.1H.2V8.9zM7.54 8.9h4.3v1.8h.06c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.6v7H16v-6.2c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3v6.3H7.54V8.9z"/>
             </svg>
-          </a>
           </a>
           <a href="mailto:ignacio.bernal.medina@gmail.com" aria-label="Mail">
             <svg viewBox="0 0 24 24">
