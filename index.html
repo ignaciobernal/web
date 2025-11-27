@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignacio Bernal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================
+       CONFIGURACIÓN
+       ========================================= */
+    :root {
+      --tamano-logo: 110px; 
+      --bg-color: #050505;
+      --text-color: #ffffff;
+      --accent-color: #ffffff; /* Blanco puro para acentos */
+      --grid-color: rgba(255, 255, 255, 0.05); /* Líneas sutiles */
+    }
+
+    @keyframes slideUpFade {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      height: 100vh;
+      position: relative;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    /* FONDO TÉCNICO CON CUADRÍCULA */
+    .background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      /* Patrón de cuadrícula estilo ingeniería */
+      background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 50px 50px; /* Tamaño de los cuadros */
+      z-index: -2;
+    }
+
+    /* Un degradado radial para que el centro brille un poco y los bordes sean oscuros */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, #050505 90%);
+      z-index: -1;
+    }
+
+    /* HEADER */
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+      padding: 2rem 3rem;
+      z-index: 3;
+    }
+
+    .logo-link { display: block; line-height: 0; }
+
+    .logo-img {
+      height: var(--tamano-logo); 
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    .logo-img:hover {
+      transform: scale(1.05); 
+      /* Efecto sutil azulado al pasar el ratón */
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row-reverse; /* Foto a la derecha, texto a la izquierda */
+      align-items: center;
+      justify-content: space-between;
+      gap: 5rem;
+      max-width: 1200px;
+      width: 100%;
+      animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    /* SECCIÓN DE LA FOTO */
+    .profile-section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Círculo decorativo detrás de la foto */
+    .profile-section::before {
+      content: '';
+      position: absolute;
+      width: 260px; height: 260px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      animation: spin 20s linear infinite;
+      z-index: -1;
+    }
+
+    .profile-pic {
+      width: 240px; /* Más grande */
+      height: 240px;
+      border-radius: 50%; /* Opcional: Cambia a 0% si la quieres cuadrada */
+      object-fit: cover;
+      /* FOTO EN BLANCO Y NEGRO POR DEFECTO */
+      filter: grayscale(100%) contrast(110%);
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: all 0.5s ease;
+    }
+
+    /* AL PASAR EL RATÓN LA FOTO COBRA VIDA */
+    .profile-pic:hover {
+      filter: grayscale(0%) contrast(100%);
+      border-color: #fff;
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+
+    /* SECCIÓN DE TEXTO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 4rem; /* Muy grande */
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      letter-spacing: -2px; /* Estilo moderno apretado */
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #888; /* Gris elegante */
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      max-width: 500px;
+      border-left: 1px solid #333; /* Línea decorativa lateral */
+      padding-left: 1.5rem;
+    }
+
+    /* REDES SOCIALES (Debajo del texto ahora, más accesible) */
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .social-icons a {
+      color: #666;
+      transition: all 0.3s;
+      background: rgba(255,255,255,0.05);
+      padding: 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-icons a:hover {
+      color: #000;
+      background: #fff; /* Inversión de color al hover */
+      transform: translateY(-5px);
+    }
+
+    .social-icons svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    /* BOTÓN NUEVO ESTILO */
+    .btn-proyectos {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: #000;
+      background: #fff; /* Botón blanco sólido */
+      border: 1px solid #fff;
+      border-radius: 0px; /* Bordes rectos estilo técnico */
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-proyectos:hover {
+      background: transparent;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero {
+        align-items: center;
+        text-align: center;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      header {
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      
+      /* Ajuste logo móvil */
+      .logo-img { height: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <header>
+    <a href="#" class="logo-link">
+      <img src="https://raw.githubusercontent.com/ignaciobernal/personal-web/refs/heads/main/media/logo-white-sinfondo.png" alt="Ignacio Bernal Logo" class="logo-img" />
+    </a>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="profile-section">
+        <img src="https://raw.githubusercontent.com/ignaciobernal/personal-web/refs/heads/main/media/profile-pic%20(2).png" alt="Ignacio Bernal" class="profile-pic" />
+      </div>
+
+      <div class="hero">
+        <h1>IGNACIO<br>BERNAL MEDINA</h1>
+        <p>Estudiante de Ingeniería Aeroespacial en la Universidad de Sevilla.</p>
+        
+        <div class="social-icons">
+          <a href="https://github.com/ignaciobernal" target="_blank" aria-label="GitHub">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.2 9.2 7.7 10.7.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.5-3.8-1.5-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.5-.3-5.1-1.2-5.1-5.6 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3 .9a10.4 10.4 0 0 1 5.5 0c2.1-1.2 3-.9 3-.9.6 1.6.2 2.8.1 3.1.7.8 1.1 1.8 1.1 3 0 4.4-2.6 5.3-5.1 5.6.4.3.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.7C23.4 5.6 18.3.5 12 .5z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ignaciobernalmedina/" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6A2.5 2.5 0 0 1 0 3.5C0 2.12 1.11 1 2.49 1 3.87 1 4.98 2.12 4.98 3.5zM.2 8.9h4.5v13.1H.2V8.9zM7.54 8.9h4.3v1.8h.06c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.6v7H16v-6.2c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3v6.3H7.54V8.9z"/>
+            </svg>
+          </a>
+        </div>
+
+        <a href="https://www.archdaily.com/search/projects" class="btn-proyectos">Ver Proyectos</a>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
