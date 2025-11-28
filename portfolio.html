@@ -10,7 +10,7 @@
        CONFIGURACIÓN (Heredada de Inicio)
        ========================================= */
     :root {
-      --tamano-logo: 110px; 
+      --tamano-logo: 50px; 
       --bg-color: #050505;
       --text-color: #ffffff;
       --accent-color: #ffffff;
@@ -86,7 +86,7 @@
        ========================================= */
     
     main {
-      padding: 180px 2rem 4rem 2rem; /* Padding top alto para librar el header */
+      padding: 120px 2rem 4rem 2rem; /* Padding top alto para librar el header */
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
@@ -235,8 +235,14 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       header { justify-content: center; padding: 1.5rem; }
-      .logo-img { height: 60px; }
-      main { padding-top: 140px; }
+      
+      .logo-img { 
+        height: 50px;
+      }
+      
+      /* Ajustamos el padding del main para que el logo más grande no tape el título */
+      main { padding-top: 100px; } 
+      
       .page-title { font-size: 2.2rem; }
     }
   </style>
@@ -264,9 +270,9 @@
 
     <div class="projects-grid" id="projectsGrid">
         
-      <a href="proyecto-dron.html" class="project-card" data-category="transport">
+      <a href="proyecto-ams.html" class="project-card" data-category="transport">
         <div class="card-image-wrapper">
-          <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/Captura%20de%20pantalla%202025-11-27%20201207.png" alt="Drone Project" class="card-img">
+          <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/Captura%20de%20pantalla%202025-11-27%20201207.png" alt="Multimodal Network" class="card-img">
         </div>
         <div class="card-content">
           <span class="card-category">Modelado macroscópico</span>
@@ -281,7 +287,7 @@
 
       <a href="proyecto-dron.html" class="project-card" data-category="aerospace">
         <div class="card-image-wrapper">
-          <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/dronair-cover.jpg" alt="Drone Project" class="card-img">
+          <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/dronair-cover.jpg" alt="Centro de operaciones con drones" class="card-img">
         </div>
         <div class="card-content">
           <span class="card-category">Construcción</span>
@@ -292,12 +298,12 @@
 
       <a href="proyecto-auto.html" class="project-card" data-category="software">
         <div class="card-image-wrapper">
-          <img src="https://blog.n8n.io/content/images/2023/03/openai-n8n-1.png" alt="auto" class="card-img">
+          <img src="https://blog.n8n.io/content/images/2023/03/openai-n8n-1.png" alt="Automatización web" class="card-img">
         </div>
         <div class="card-content">
-          <span class="card-category">Desarrollo</span>
-          <h3 class="card-title">Automatización web de noticias</h3>
-          <p class="card-desc">Desarrollo de web de noticias deportivas redactadas por IA y publicadas automáticamente.</p>
+          <span class="card-category">Automatización</span>
+          <h3 class="card-title">Web de noticias automatizada</h3>
+          <p class="card-desc">Desarrollo web de noticias deportivas redactadas por IA y publicadas automáticamente.</p>
           <div class="tech-tags">
             <span class="tag">n8n</span>
             <span class="tag">html</span>
@@ -305,6 +311,36 @@
           </div>
         </div>
       </a>
+      
+      <a href="proyecto-ruido.html" class="project-card" data-category="aerospace">
+        <div class="card-image-wrapper">
+          <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/ruidoEAS-cover.png" alt="Impacto de Ruido" class="card-img">
+        </div>
+        <div class="card-content">
+          <span class="card-category">PLANIFICACIÓN</span>
+          <h3 class="card-title">Análisis del impacto de ruido en EAS/LESO</h3>
+          <p class="card-desc">Mediante el software Integrated Noise Model de FAA.</p>
+          <div class="tech-tags">
+            <span class="tag">INM</span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="proyecto-sagres.html" class="project-card" data-category="aerospace">
+        <div class="card-image-wrapper">
+          <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/sagres-cover.png" alt="Área de movimiento" class="card-img">
+        </div>
+        <div class="card-content">
+          <span class="card-category">DISEÑO</span>
+          <h3 class="card-title">Área de movimiento del B737-900</h3>
+          <p class="card-desc">Siguiendo normativa y recomendaciones de Anexo 14 y Doc 9157 (OACI).</p>
+          <div class="tech-tags">
+            <span class="tag">WRplot</span>
+            <span class="tag">Excel</span>
+          </div>
+        </div>
+      </a>
+      
     </div>
   </main>
 
@@ -315,9 +351,7 @@
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      // 2. Añadir clase 'active' al botón pulsado (usando event.target o buscando por texto/onclick, aquí lo simplificamos visualmente)
-      // Nota: Para que el botón clickeado se ilumine, necesitamos pasar "this" o buscarlo.
-      // Manera sencilla: el usuario hace click, actualizamos estilos.
+      // 2. Añadir clase 'active' al botón pulsado
       event.currentTarget.classList.add('active');
 
       // 3. Obtener todas las tarjetas
