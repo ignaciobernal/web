@@ -231,9 +231,9 @@
   <main>
     
     <div class="project-header">
-      <span class="project-category">CATEGORÍA DEL PROYECTO</span>
+      <span class="project-category">TRANSPORTE</span>
       
-      <h1 class="project-title">TÍTULO DEL PROYECTO</h1>
+      <h1 class="project-title">AMSTERDAM MULTIMODAL NETWORK</h1>
     </div>
 
     <div class="three-blocks-container">
@@ -243,11 +243,9 @@
         
         <h2 class="block-title">Qué</h2>
         <p class="block-content">
-          Descripción del problema o el objetivo principal del proyecto. Explica qué desafío intentabas resolver.
+          Estudio de modelado macroscópico de transporte aplicado a la ciudad de Ámsterdam.
           <br><br>
-          • Paso 1: Investigación<br>
-          • Paso 2: Desarrollo<br>
-          • Paso 3: Implementación
+          • Análisis de patrones de enrutamiento y tiempos de viaje entre distintos modos de transporte.<br>
         </p>
       </div>
 
@@ -256,7 +254,10 @@
         
         <h2 class="block-title">Cómo</h2>
         <p class="block-content">
-          Explicación técnica, herramientas usadas, lenguajes de programación, software o metodologías aplicadas durante el proceso.
+          Simulación computacional en R utilizando el motor de enrutamiento r5r para procesar redes de gran escala.
+          <br><br>
+          • Cálculo de matrices de tiempo de viaje (TTM), circuity, isocronas y accesibilidad.<br>
+          • Uso de OpenStreetMaps, GTFS, census data.
         </p>
       </div>
 
