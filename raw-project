@@ -239,34 +239,29 @@
     <div class="three-blocks-container">
       
       <div class="info-block">
-        <img src="https://via.placeholder.com/600x400/222222/ffffff?text=FOTO+QUE" alt="Qué" class="block-img" />
+        <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/Captura%20de%20pantalla%202025-11-27%20201207.png" alt="Qué" class="block-img" />
         
         <h2 class="block-title">Qué</h2>
         <p class="block-content">
-          Estudio de modelado macroscópico de transporte aplicado a la ciudad de Ámsterdam.
-          <br><br>
-          • Análisis de patrones de enrutamiento y tiempos de viaje entre distintos modos de transporte.<br>
+          Estudio macroscópico del transporte multimodal en Ámsterdam para evaluar la eficiencia de la red y la accesibilidad ciudadana a servicios clave.
         </p>
       </div>
 
       <div class="info-block">
-        <img src="https://via.placeholder.com/600x400/222222/ffffff?text=FOTO+COMO" alt="Cómo" class="block-img" />
+        <img src="https://repository-images.githubusercontent.com/285653536/1c33bc00-fcc9-11ea-9673-c31787c2049d" alt="Cómo" class="block-img" />
         
         <h2 class="block-title">Cómo</h2>
         <p class="block-content">
-          Simulación computacional en R utilizando el motor de enrutamiento r5r para procesar redes de gran escala.
-          <br><br>
-          • Cálculo de matrices de tiempo de viaje (TTM), circuity, isocronas y accesibilidad.<br>
-          • Uso de OpenStreetMaps, GTFS, census data.
+          Modelado espacial en R (r5r) cruzando datos de OpenStreetMap, censos y GTFS para generar isocronas, matrices de tiempo y simular futuras infraestructuras.
         </p>
       </div>
 
       <div class="info-block">
-        <img src="https://via.placeholder.com/600x400/222222/ffffff?text=FOTO+RESULTADOS" alt="Resultados" class="block-img" />
+        <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/results-ams.png" alt="Resultados" class="block-img" />
         
         <h2 class="block-title">Resultados</h2>
         <p class="block-content">
-          Conclusiones finales, datos obtenidos, mejoras de rendimiento o el producto final entregado.
+          Identificación de zonas con déficit de transporte en la periferia y validación del impacto positivo que tendría construir una nueva línea de metro.
         </p>
       </div>
 
